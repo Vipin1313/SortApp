@@ -1,0 +1,70 @@
+body {
+	font-family: Avenir Next;
+	background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjGGQm70hQqV74dYtUSgu_R5U-s6Q0Y0d6-IKisNT7YO5wWC1l4DsjK2OThPz4BU2aW7U&usqp=CAU) no-repeat center center fixed;
+	background-size: cover;
+	height: 100%;
+	/* overflow: hidden; */
+}
+
+#container {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+}
+
+input[type=button] {
+	font-size: 17px;
+	font-family: sans-serif;
+	background-color: #62529c;
+	border: none;
+	color: #fff;
+	padding: 15px 30px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+.menu-right {
+	text-align: right;
+}
+.regenerate {
+	left: 20px;
+}
+ul li {
+	display: inline-block;
+	margin: 10px;
+	list-style: none;
+}
+.nav-bar {
+	background: #62529c;
+	color: white;
+	padding: 10px;
+	font-family: sans-serif;
+}
+.nav-bar img {
+	position: absolute;
+	height : 150px;
+	float: left;
+	margin: 10;
+	left: 50px;
+	top: -20px;
+}
+.heading {
+	width: 100px; 
+	text-align:center;}
+span {
+    margin: 0px;
+	font-size: 28px;
+	cursor: pointer;
+	display: none;
+}
+@media only screen and (max-width: 700px) {
+	span {
+		display: block;
+	}
+	ul li {
+		display: block;
+	}
+	ul {
+		display: none;
+	}
+}

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sorting App</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="sort.js"></script>
+	<script src="Chart.min.js"></script>
+</head>
+
+<body>
+	<div class="nav-bar">
+		<img src="Sorting Visualizer App.png" alt="Sorting App">
+		<div class="menu-right">
+
+			<span onClick="myFunctionToggle()">&#9776;</span>
+
+			<ul id="menu">
+				<input type="button" value="Bar Chart" onclick="showBar()">
+				<input type="button" value="Polar Area Chart" onclick="showPolar()">
+				<input type="button" value="Line Chart" onclick="showLine()">
+				<input type="button" value="Radar Chart" onclick="showRadar()">
+				<input type="button" value="Pie Chart" onclick="showDoughnutAndPie()">
+				<!-- <input type="button" value="Insertion Sort Array" onclick="insertionSortArray()"> -->
+			</ul>
+		</div>
+	</div>
+	<div id="container">
+		<!-- <hr/> -->
+
+		<input class="regenerate" type="button" value="Re-Generate Array" onclick="resetArray()">
+        <input type="button" value="Bubble Sort" onclick="bubbleSortArray()">
+		<canvas id="myChart" width="400" height="300"></canvas>
+
+		<script>
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: ['Element 1', 'Element 2', 'Element 3', 'Element 4', 'Element 5',
+						'Element 6', 'Element 7', 'Element 8', 'Element 9', 'Element 10',
+						'Element 11', 'Element 12', 'Element 13', 'Element 14', 'Element 15',
+						'Element 16', 'Element 17', 'Element 18', 'Element 19', 'Element 20',
+						'Element 21', 'Element 22', 'Element 23', 'Element 24', 'Element 25',
+						'Element 26', 'Element 27', 'Element 28', 'Element 29', 'Element 30',
+						'Element 31', 'Element 32', 'Element 33', 'Element 34', 'Element 35',
+						'Element 36', 'Element 37', 'Element 38', 'Element 39', 'Element 40'
+					],
+					datasets: [{
+						data: array,
+						backgroundColor: "rgba(111, 99, 236, 0.5)",
+						borderWidth: 2
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					}
+				}
+			});
+
+			function bubbleSortArray() {
+				bubbleSort();
+				myChart.data.datasets[0].data = sortedArray;
+				myChart.update();
+				console.log("Array sorted using Bubble Sort");
+				console.log(sortedArray);
+			}
+
+			function insertionSortArray() {
+				insertionSort();
+				myChart.data.datasets[0].data = sortedArray;
+				myChart.update();
+				console.log("Array sorted using Insertion Sort");
+				console.log(sortedArray);
+			}
+
+			function resetArray() {
+				generateArray();
+				myChart.data.datasets[0].data = array;
+				myChart.update();
+				console.log("Re-generating array...");
+				console.log(array);
+			}
+			function showLine() {
+				myChart.destroy();
+				myChart = new Chart(ctx, {
+					type: 'line',
+					data: {
+						labels: ['Element 1', 'Element 2', 'Element 3', 'Element 4', 'Element 5',
+							'Element 6', 'Element 7', 'Element 8', 'Element 9', 'Element 10',
+							'Element 11', 'Element 12', 'Element 13', 'Element 14', 'Element 15',
+							'Element 16', 'Element 17', 'Element 18', 'Element 19', 'Element 20',
+							'Element 21', 'Element 22', 'Element 23', 'Element 24', 'Element 25',
+							'Element 26', 'Element 27', 'Element 28', 'Element 29', 'Element 30',
+							'Element 31', 'Element 32', 'Element 33', 'Element 34', 'Element 35',
+							'Element 36', 'Element 37', 'Element 38', 'Element 39', 'Element 40'
+						],
+						datasets: [{
+							data: array,
+							backgroundColor: "rgba(111, 99, 236, 0.5)",
+							borderWidth: 2
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						}
+					}
+				});
+			}
+
+			function showBar() {
+				myChart.destroy();
+				myChart = new Chart(ctx, {
+					type: 'bar',
+					data: {
+						labels: ['Element 1', 'Element 2', 'Element 3', 'Element 4', 'Element 5',
+							'Element 6', 'Element 7', 'Element 8', 'Element 9', 'Element 10',
+							'Element 11', 'Element 12', 'Element 13', 'Element 14', 'Element 15',
+							'Element 16', 'Element 17', 'Element 18', 'Element 19', 'Element 20',
+							'Element 21', 'Element 22', 'Element 23', 'Element 24', 'Element 25',
+							'Element 26', 'Element 27', 'Element 28', 'Element 29', 'Element 30',
+							'Element 31', 'Element 32', 'Element 33', 'Element 34', 'Element 35',
+							'Element 36', 'Element 37', 'Element 38', 'Element 39', 'Element 40'
+						],
+						datasets: [{
+							data: array,
+							backgroundColor: "rgba(111, 99, 236, 0.5)",
+							borderWidth: 2
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						}
+					}
+				});
+			}
+
+			function showRadar() {
+				myChart.destroy();
+				myChart = new Chart(ctx, {
+					type: 'radar',
+					data: {
+						labels: ['Element 1', 'Element 2', 'Element 3', 'Element 4', 'Element 5',
+							'Element 6', 'Element 7', 'Element 8', 'Element 9', 'Element 10',
+							'Element 11', 'Element 12', 'Element 13', 'Element 14', 'Element 15',
+							'Element 16', 'Element 17', 'Element 18', 'Element 19', 'Element 20',
+							'Element 21', 'Element 22', 'Element 23', 'Element 24', 'Element 25',
+							'Element 26', 'Element 27', 'Element 28', 'Element 29', 'Element 30',
+							'Element 31', 'Element 32', 'Element 33', 'Element 34', 'Element 35',
+							'Element 36', 'Element 37', 'Element 38', 'Element 39', 'Element 40'
+						],
+						datasets: [{
+							data: array,
+							backgroundColor: "rgba(111, 99, 236, 0.5)",
+							borderWidth: 2
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						}
+					}
+				});
+			}
+			function showPolar() {
+				myChart.destroy();
+				myChart = new Chart(ctx, {
+					type: 'polarArea',
+					data: {
+						labels: ['Element 1', 'Element 2', 'Element 3', 'Element 4', 'Element 5',
+							'Element 6', 'Element 7', 'Element 8', 'Element 9', 'Element 10',
+							'Element 11', 'Element 12', 'Element 13', 'Element 14', 'Element 15',
+							'Element 16', 'Element 17', 'Element 18', 'Element 19', 'Element 20',
+							'Element 21', 'Element 22', 'Element 23', 'Element 24', 'Element 25',
+							'Element 26', 'Element 27', 'Element 28', 'Element 29', 'Element 30',
+							'Element 31', 'Element 32', 'Element 33', 'Element 34', 'Element 35',
+							'Element 36', 'Element 37', 'Element 38', 'Element 39', 'Element 40'
+						],
+						datasets: [{
+							data: array,
+							backgroundColor: "rgba(111, 99, 236, 0.5)",
+							borderWidth: 2
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						}
+					}
+				});
+			}
+			function showDoughnutAndPie() {
+				myChart.destroy();
+				myChart = new Chart(ctx, {
+					type: 'doughnut',
+					data: {
+						labels: ['Element 1', 'Element 2', 'Element 3', 'Element 4', 'Element 5',
+							'Element 6', 'Element 7', 'Element 8', 'Element 9', 'Element 10',
+							'Element 11', 'Element 12', 'Element 13', 'Element 14', 'Element 15',
+							'Element 16', 'Element 17', 'Element 18', 'Element 19', 'Element 20',
+							'Element 21', 'Element 22', 'Element 23', 'Element 24', 'Element 25',
+							'Element 26', 'Element 27', 'Element 28', 'Element 29', 'Element 30',
+							'Element 31', 'Element 32', 'Element 33', 'Element 34', 'Element 35',
+							'Element 36', 'Element 37', 'Element 38', 'Element 39', 'Element 40'
+						],
+						datasets: [{
+							data: array,
+							backgroundColor: "rgba(111, 99, 236, 0.5)",
+							borderWidth: 2
+						}]
+					},
+					options: {
+						legend: {
+							display: false
+						}
+					}
+				});
+			}
+		</script>
+
+
+		<br />
+
+	</div>
+	<hr />
+	<!-- <center>This project is the intellectual property of the owner.</center> -->
+	<script>
+		function myFunctionToggle() {
+			var x = document.getElementById("menu");
+			if (x.style.display == "block") {
+				x.style.display = "none";
+			} else {
+				x.style.display = "block";
+			}
+		}
+	</script>
+
+</body>
+
+</html>
