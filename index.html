@@ -16,12 +16,11 @@
 			<span onClick="myFunctionToggle()">&#9776;</span>
 
 			<ul id="menu">
-				<input type="button" value="Bar Chart" onclick="showBar()">
-				<input type="button" value="Polar Area Chart" onclick="showPolar()">
+				<input type="button" value="Bar chart" onclick="document.location.href = 'quickSort.html'" />
+				<input type="button" value="Polar Chart" onclick="showPolar()">
 				<input type="button" value="Line Chart" onclick="showLine()">
 				<input type="button" value="Radar Chart" onclick="showRadar()">
 				<input type="button" value="Pie Chart" onclick="showDoughnutAndPie()">
-				<!-- <input type="button" value="Insertion Sort Array" onclick="insertionSortArray()"> -->
 			</ul>
 		</div>
 	</div>
@@ -29,7 +28,7 @@
 		<!-- <hr/> -->
 
 		<input class="regenerate" type="button" value="Re-Generate Array" onclick="resetArray()">
-        <input type="button" value="Bubble Sort" onclick="bubbleSortArray()">
+		<input type="button" value="Bubble Sort" onclick="bubbleSortArray()">
 		<canvas id="myChart" width="400" height="300"></canvas>
 
 		<script>
@@ -226,7 +225,6 @@
 
 	</div>
 	<hr />
-	<!-- <center>This project is the intellectual property of the owner.</center> -->
 	<script>
 		function myFunctionToggle() {
 			var x = document.getElementById("menu");
